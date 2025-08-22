@@ -61,6 +61,20 @@ startReps.addEventListener('submit', function(event) {
                         playBeep(440, 120, 'sine'); // Beep for each decrement
                         if (currentCount === 0) {
                             playBeep(880, 400, 'triangle'); // Different beep at end
+                            setTimeout(() => {
+                                // Restore start form after beep
+                                document.body.innerHTML = `
+                                    <main>
+                                        <form id="startReps">
+                                            <label for="reps">Enter the number of reps:</label><br>
+                                            <input type="number" id="reps" min="1" required autocomplete="off">
+                                            <input type="submit" value="Submit">
+                                        </form>
+                                    </main>
+                                `;
+                                // Re-attach event listener
+                                window.location.reload();
+                            }, 500);
                         }
                     }
                 }
