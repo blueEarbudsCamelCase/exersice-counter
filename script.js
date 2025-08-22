@@ -19,6 +19,23 @@ startReps.addEventListener('submit', function(event) {
     let currentCount = reps;
     const repCountEl = document.getElementById('repCount');
 
+    // Simple beep sound using Web Audio API
+    function playBeep(frequency = 440, duration = 120, type = 'sine') {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = ctx.createOscillator();
+        const gain = ctx.createGain();
+        oscillator.type = type;
+        oscillator.frequency.value = frequency;
+        gain.gain.value = 0.2;
+        oscillator.connect(gain);
+        gain.connect(ctx.destination);
+        oscillator.start();
+        setTimeout(() => {
+            oscillator.stop();
+            ctx.close();
+        }, duration);
+    }
+
     // Voice recognition setup
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRecognition) {
@@ -41,6 +58,10 @@ startReps.addEventListener('submit', function(event) {
                         currentCount = Math.max(0, currentCount - 1);
                         repCountEl.textContent = currentCount;
                         console.log('Count decremented:', currentCount);
+                        playBeep(440, 120, 'sine'); // Beep for each decrement
+                        if (currentCount === 0) {
+                            playBeep(880, 400, 'triangle'); // Different beep at end
+                        }
                     }
                 }
             }
