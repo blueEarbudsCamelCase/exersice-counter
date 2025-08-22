@@ -32,9 +32,10 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 400px;
     width: 100%;
-    margin: auto;
+    max-width: 370px; /* Ensures it fits on 412px screens with padding */
+    /* Remove margin: auto; */
+    box-sizing: border-box;
 }
 
 label {
@@ -111,11 +112,12 @@ html, body {
 /* Responsive adjustments for small screens */
 @media (max-width: 415px) {
     main {
-        padding: 1rem 1.5rem; /* 1rem top/bottom, 1.5rem left/right */
+        padding: 1rem 1.5rem;
     }
     form {
         padding: 1rem;
-        max-width: 95vw;
+        max-width: 100vw; /* Always fits the screen */
+        width: 100%;
         border-radius: 1rem;
     }
     input[type="number"],
