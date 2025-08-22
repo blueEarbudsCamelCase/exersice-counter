@@ -19,6 +19,8 @@ main {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    padding: 2rem; /* Add padding for spacing */
+    box-sizing: border-box;
 }
 
 form {
@@ -104,6 +106,9 @@ html, body {
 
 /* Responsive adjustments for small screens */
 @media (max-width: 600px) {
+    main {
+        padding: 1rem; /* Reduce padding on small screens */
+    }
     form {
         padding: 1rem;
         max-width: 95vw;
