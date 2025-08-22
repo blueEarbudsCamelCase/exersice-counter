@@ -68,12 +68,41 @@ input[type="submit"]:hover {
 }
 
 #counterScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background: var(--cream);
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 2rem;
 }
 
 #repCount {
-    font-size: 10rem;
+    font-size: 10vw;
     color: var(--blue);
     font-weight: bold;
     text-shadow: 2px 2px 8px var(--light-gray);
+    word-break: break-word;
+    text-align: center;
+}
+
+/* Make sure html and body take full height */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+    #repCount {
+        font-size: 18vw;
+        padding: 1rem;
+    }
+    #counterScreen {
+        padding: 1rem;
+    }
 }

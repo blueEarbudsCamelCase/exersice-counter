@@ -11,9 +11,9 @@ startReps.addEventListener('submit', function(event) {
 
     // Remove form and show blank screen with large number
     document.body.innerHTML = `
-        <div id="counterScreen" style="display:flex;justify-content:center;align-items:center;height:100vh;background:#fff;">
-            <span id="repCount" style="font-size:10rem;">${reps}</span>
-        </div>
+        <main id="counterScreen">
+            <span id="repCount">${reps}</span>
+        </main>
     `;
 
     let currentCount = reps;
