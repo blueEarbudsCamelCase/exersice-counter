@@ -31,14 +31,17 @@ startReps.addEventListener('submit', function(event) {
             for (let i = event.resultIndex; i < event.results.length; ++i) {
                 if (event.results[i].isFinal) {
                     const transcript = event.results[i][0].transcript.trim().toLowerCase();
-                    if (transcript.includes('up')) {
-                        currentCount++;
-                        repCountEl.textContent = currentCount;
-                    } else if (transcript.includes('down')) {
+                    if (transcript.includes('down')) {
                         currentCount = Math.max(0, currentCount - 1);
                         repCountEl.textContent = currentCount;
                     }
                 }
+            }
+        };
+
+        recognition.onend = function() {
+            if (currentCount > 0) {
+                recognition.start();
             }
         };
 
