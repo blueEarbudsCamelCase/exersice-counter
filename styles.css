@@ -20,7 +20,7 @@ main {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 2rem; /* Add padding for spacing */
+    padding: 2rem 2.5rem; /* 2rem top/bottom, 2.5rem left/right */
     box-sizing: border-box;
 }
 
@@ -109,9 +109,9 @@ html, body {
 }
 
 /* Responsive adjustments for small screens */
-@media (max-width: 410x) {
+@media (max-width: 415px) {
     main {
-        padding: 1rem; /* Reduce padding on small screens */
+        padding: 1rem 1.5rem; /* 1rem top/bottom, 1.5rem left/right */
     }
     form {
         padding: 1rem;
