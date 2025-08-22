@@ -37,7 +37,7 @@ startReps.addEventListener('submit', function(event) {
                 if (event.results[i].isFinal) {
                     const transcript = event.results[i][0].transcript.trim().toLowerCase();
                     console.log('Transcript:', transcript);
-                    if (transcript.includes('down')) {
+                    if (transcript.includes('next')) {
                         currentCount = Math.max(0, currentCount - 1);
                         repCountEl.textContent = currentCount;
                         console.log('Count decremented:', currentCount);
