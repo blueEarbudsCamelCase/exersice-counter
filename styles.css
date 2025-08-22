@@ -11,6 +11,7 @@ body {
     color: var(--dark);
     font-family: 'Afacad', Arial, sans-serif;
     margin: 0;
+    overflow: hidden; /* Prevent scrolling */
 }
 
 main {
@@ -49,6 +50,7 @@ input[type="submit"] {
     border-radius: 0.75rem;
     width: 100%;
     box-sizing: border-box;
+    font-family: 'Afacad', Arial, sans-serif; /* Ensure consistent font */
 }
 
 input[type="number"] {
@@ -69,6 +71,7 @@ input[type="submit"] {
     color: var(--cream);
     cursor: pointer;
     transition: background 0.2s;
+    font-family: 'Afacad', Arial, sans-serif; /* Ensure consistent font */
 }
 
 input[type="submit"]:hover {
@@ -102,6 +105,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden; /* Prevent scrolling on mobile */
 }
 
 /* Responsive adjustments for small screens */
