@@ -27,21 +27,36 @@ startReps.addEventListener('submit', function(event) {
         recognition.interimResults = false;
         recognition.lang = 'en-US';
 
+        recognition.onstart = function() {
+            console.log('Speech recognition started');
+        };
+
         recognition.onresult = function(event) {
+            console.log('Speech recognition result received');
             for (let i = event.resultIndex; i < event.results.length; ++i) {
                 if (event.results[i].isFinal) {
                     const transcript = event.results[i][0].transcript.trim().toLowerCase();
+                    console.log('Transcript:', transcript);
                     if (transcript.includes('down')) {
                         currentCount = Math.max(0, currentCount - 1);
                         repCountEl.textContent = currentCount;
+                        console.log('Count decremented:', currentCount);
                     }
                 }
             }
         };
 
+        recognition.onerror = function(event) {
+            console.log('Speech recognition error:', event.error);
+        };
+
         recognition.onend = function() {
+            console.log('Speech recognition ended');
             if (currentCount > 0) {
+                console.log('Restarting recognition');
                 recognition.start();
+            } else {
+                console.log('Recognition stopped, count is 0');
             }
         };
 
